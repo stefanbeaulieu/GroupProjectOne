@@ -3,7 +3,7 @@ BODY
 ***********************/
 
 body {
-  
+  	width: 100%;
 }
 
 
@@ -26,5 +26,10 @@ FONT
 
 h1 {
   
+}
+
+header{
+	text-align: center;
+	padding-bottom: 30px;
 }
 
