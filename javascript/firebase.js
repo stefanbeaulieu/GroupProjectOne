@@ -16,10 +16,10 @@ var database = firebase.database();
 var auth = firebase.auth();
 
 //Create new user
-$("#submitButton").on('click', function() {
+$("#signupButton").on('click', function() {
 
-	var email = $("#InputEmail").val().trim();
-	var password = $("#InputPassword").val().trim();
+	var email = $("#email").val().trim();
+	var password = $("#password").val().trim();
 
 	//Create new user
 	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -36,9 +36,9 @@ $("#submitButton").on('click', function() {
 	});//end firebase function
 
 	//Clear inputs after submit
-	$("#InputEmail").val("");
-	$("#InputPassword").val("");
-	$("#InputName").val("");
+	$("#email").val("");
+	$("#password").val("");
+	$("#name").val("");
 
 	//don't refresh page
 	return false;
