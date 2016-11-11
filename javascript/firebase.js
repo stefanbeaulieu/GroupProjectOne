@@ -44,3 +44,29 @@ $("#signupButton").on('click', function() {
 	return false;
 
 });
+
+//Sign in user
+
+$("#loginButton").on('click', function() {
+
+	var email = $("#signInEmail").val().trim();
+	var password = $("#signInPassword").val().trim();
+
+	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		
+		if (error) {
+			alert(errorMessage)
+		}
+	});
+
+	$("#signInEmail").val("");
+	$("#signInPassword").val("");
+
+	window.location.href = "home.html";
+
+	return false;
+
+});
