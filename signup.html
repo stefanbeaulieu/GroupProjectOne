@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Giftly</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- External link for reset file -->
+  <link rel="stylesheet" href="css/reset.css">
+
+	<!-- External link for the normalize file -->
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <!-- External link for the bootstrap styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- External Link to Our Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- External JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- External JS Bootstrap files -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- External Firebase Link -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+<style>
+	.login-container{
+		width: 50%;
+		margin: 0px auto;
+	}
+	.signup-container{
+		width: 50%;
+		margin: 0px auto;
+	}
+</style>
+
+</head>
+
+<body>
+	
+	<header>
+		<img src="images/giftly.jpg" alt="Giftly Logo" id="logo">
+	</header>
+	<div class="row">
+		<div class="col-sm-6">
+	
+	<div class="login-container">
+		<form>
+			<div class="form-group">
+    <label for="signInEmail">Email:</label>
+    <input type="email" class="form-control" id="signInEmail" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="signInPassword">Password:</label>
+    <input type="password" class="form-control" id="signInPassword" placeholder="Password">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+	</div>
+	</div>
+	<div class="col-sm-6">
+	<div class="signup-container">
+			<form>
+			<div class="form-group">
+    <label for="InputName">Name:</label>
+    <input type="name" class="form-control" id="InputName" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="InputEmail">Email address</label>
+    <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="InputPassword">Password</label>
+    <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+		</div>
+	</div>
+	</div>
+	
+	
+
+<script type="text/javascript" src="javascript/firebase.js"></script>
+</body>
+</html>
