@@ -65,8 +65,8 @@ $("#loginButton").on('click', function() {
 	$("#signInEmail").val("");
 	$("#signInPassword").val("");
 
+	window.location.href = "home.html";
 
 	return false;
 
-	window.location.href = "home.html";
 });
