@@ -48,7 +48,7 @@ HEADINGS
 
 .banner {
 	font-size: 7em;
-	font-family: cursive;
+	font-family: 'Great Vibes', cursive;
 	padding: 20px 0px;
 }
 
@@ -86,11 +86,27 @@ button:hover {
   padding-top: 20px;
 }
 
+.btn {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
 
 /***********************
 FONT
 ***********************/
 
-h2 {
-  font-size: 36px;
+.list-group-item-info {
+  font-size: 1.5em;
+  color: #000;
+}
+
+.list-group-item-success {
+  font-size: 1.5em;
+  color: #000;
+}
+
+.subheading {
+  font-size: 1em;
 }
