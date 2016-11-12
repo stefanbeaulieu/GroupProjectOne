@@ -1,156 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Giftly</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- External link for reset file -->
+  <meta charset="UTF-8">
+  <title>Giftly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- External link for reset file -->
   <link rel="stylesheet" href="css/reset.css">
-
-	<!-- External link for the normalize file -->
+  <!-- External link for the normalize file -->
   <link rel="stylesheet" href="css/normalize.css">
-
   <!-- External link for the bootstrap styles -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+  <!-- External Link for the Banner Font -->
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
   <!-- External Link to Our Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-
   <!-- External JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
   <!-- External JS Bootstrap files -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
   <!-- External Firebase Link -->
   <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+  <!-- Firebase Authentication -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-auth.js"></script> -->
 </head>
 
 <body>
-	
-	<div class="container">
-  	<div class="header">
-	    <!-- <img src="images/giftly.jpg" alt="Giftly Logo" id="logo"> -->
-	    <h1 class="banner">Giftly</h1>
-    </div>
-  </div> <!-- ends div.header -->
-	
-	<div class="container">
+  <div class="container">
+		<p class="loggedIn">logged in as: stefan@gmail.com</p>
+    <div class="jumbotron">
 
-	<div class="row">
+      <h1 class="banner">Giftly</h1>
+      <h3 class="subbanner">Lorem Ipsum is simply dummy text of the </h3>
+      <div class="col-lg-6 col-lg-push-3">
 
-		<div class="col-sm-4 listPeople">
-			
-			<h2>List of People</h2>
-			<table>
-				<tr>
-					<td>Phil</td>
-				</tr>
-				<tr>
-					<td>Addison</td>
-				</tr>
-				<tr>
-					<td>Ryder</td>
-				</tr>
-				<tr>
-					<td>Kristen</td>
-				</tr>
-				<tr>
-					<td>Hunter</td>
-				</tr>
-				
-			</table>
-		</div>
-		
+			  <div class="input-group">
+			    <input type="text" class="form-control" placeholder="Add a friend...">
+			    <span class="input-group-btn">
+			      <button class="btn btn-default" type="button">Add!</button>
+			    </span>
+			  </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+    </div> <!-- ends div.jumbrotron -->
 
-		<div class="col-sm-8 search">
-			
-			<form id="searchForm">
-				<input type="text" id="productSearch" name="search" size="45" placeholder="Type Search Here">
-				<button type="submit" >Submit</button>	
-			</form>
+      <div class="row">
+        <div class="col-sm-3 listPeople">
+          <div class="list-group">
 
-		<div class="row">
-
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-			<div class="col-sm-4 product">
-				<h3>title</h3>
-				<img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-				<p>test test test</p>
-			</div>
-		</div>
-
-		</div>
-
-	</div>
-
-	</div>
-
-<script type="text/javascript" src="javascript/home.js"></script>
-<script type="text/javascript" src="javascript/walmart.js"></script>
+					  <a href="#" class="list-group-item list-group-item-warning">
+					    Cras justo odio
+					  </a>
+					  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+					  <a href="#" class="list-group-item">Morbi leo risus</a>
+					  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+					  <a href="#" class="list-group-item">Vestibulum at eros</a>
+					</div>
+        </div> <!-- Ends <div class="col-sm-4 listPeople"> -->
+        <div class="col-sm-8 search">
+          
+          <div class="row">
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+            <div class="col-sm-4 product">
+              <h3>title</h3>
+              <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
+              <p>test test test</p>
+            </div>
+          </div>
+        </div> <!-- Ends <div class="col-sm-8 search"> -->
+      </div> <!-- Ends Div.Row -->
+  </div> <!-- Closes Div.Container -->
+  <script type="text/javascript" src="javascript/home.js"></script>
+  <script type="text/javascript" src="javascript/walmart.js"></script>
 </body>
+
 </html>

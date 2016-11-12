@@ -66,7 +66,7 @@ $("#loginButton").on('click', function() {
 	})
 	.catch(function(error) {
 		if (error) {
-			console.log(error)
+			alert(error);
 		}
 	});
 	return false;

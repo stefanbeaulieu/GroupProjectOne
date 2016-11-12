@@ -32,10 +32,6 @@ td {
   margin: 0px auto;
 }
 
-.col-sm-6 {
-	padding: 0 50px;
-}
-
 
 /***********************
 HEADINGS
@@ -46,10 +42,23 @@ HEADINGS
   padding-bottom: 30px;
 }
 
+.jumbotron {
+  padding: 5px 0 60px 0;
+  background-image: url('../images/landing_page_banner.jpg');
+  background-size: cover;
+  border: 1px solid darkgray;
+  color: #000; text-shadow: 1px 1px 0 #fff;
+}
+
 .banner {
-	font-size: 7em;
-	font-family: 'Great Vibes', cursive;
-	padding: 20px 0px;
+  font-size: 7em;
+  font-family: 'Great Vibes', cursive;
+  padding: 20px 0px 0px 0px;
+}
+
+.subbanner {
+  font-size: 1em;
+  padding-bottom: 10px;
 }
 
 
@@ -86,7 +95,7 @@ button:hover {
   padding-top: 20px;
 }
 
-.btn {
+.indexSubmit {
   width: 100%;
   margin-top: 10px;
   margin-left: 0px;
@@ -109,4 +118,11 @@ FONT
 
 .subheading {
   font-size: 1em;
+}
+
+.loggedIn {
+  font-size: .85em;
+  color: #aaa;
+  text-align: right;
+  margin: 2px 0 0 0;
 }
