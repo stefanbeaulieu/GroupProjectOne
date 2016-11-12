@@ -14,6 +14,7 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 var auth = firebase.auth();
+var user = firebase.auth().currentUser;
 
 //Create new user
 $("#signupButton").on('click', function() {
@@ -36,8 +37,7 @@ $("#signupButton").on('click', function() {
 		 	if (error) {
 		 		alert(errorMessage);
 		 	}
-
-		});//end firebase function
+	});
 
 	//Clear inputs after submit
 	$("#email").val("");
@@ -66,8 +66,14 @@ $("#loginButton").on('click', function() {
 	})
 	.catch(function(error) {
 		if (error) {
+<<<<<<< HEAD
 			alert(error);
+=======
+			alert(error)
+>>>>>>> 05745fe53c2958cca8f27129de37ec1d52bfc190
 		}
 	});
+	
 	return false;
 });
+

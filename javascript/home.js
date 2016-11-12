@@ -16,8 +16,11 @@ var database = firebase.database();
 
 var user = firebase.auth().currentUser;
 
-if (user) {
-  // User is signed in.
-} else {
-  // No user is signed in.
-}
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+		console.log(user.email + " is signed in");
+		//append this text to the doc
+	} else {
+		console.log("User is not signed in");
+	}
+});
