@@ -1,7 +1,9 @@
+
+
 function displaySearchResults(){
 
 var product = $("#productSearch").val();
-var queryURL = "http://api.walmartlabs.com/v1/search?query=" + product + "&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs"
+var queryURL = "http://api.walmartlabs.com/v1/search?query=" + product + "&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs";
 
 //Creates AJAX call for product being searched
 $.ajax({url: queryURL, method: 'GET'}).done(function(response){
@@ -31,6 +33,33 @@ displaySearchResults();
 console.log(response.name);
 
 
-};
+}
+
+// function renderproducts(){
+
+// 	$("#productView").empty();
+
+// 	for (var i = 0; i < products.length; i++) {
+		
+// 		var a = $('<button>');
+// 		a.attr('#productSearch', products[i]);
+// 		a.text(products[i]);
+// 		$('#productView').append(a);
+// 	}
+// }
+
+// $('#productSearch').on('click', function(){
+// 	var product = $('#productSearch').val().trim();
+
+// 	products.push(product);
+
+// 	renderproducts();
+
+// 	return false;
 
 
+// })
+
+// $(document).on('click', displaySearchResults);
+
+// renderproducts();
