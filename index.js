@@ -13,6 +13,7 @@ firebase.initializeApp(config);
 
 
 var database = firebase.database();
+var auth = firebase.auth();
 
 var user = firebase.auth().currentUser;
 
