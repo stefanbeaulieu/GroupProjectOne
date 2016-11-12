@@ -66,11 +66,9 @@ $("#loginButton").on('click', function() {
 	})
 	.catch(function(error) {
 		if (error) {
-<<<<<<< HEAD
+
 			alert(error);
-=======
-			alert(error)
->>>>>>> 05745fe53c2958cca8f27129de37ec1d52bfc190
+
 		}
 	});
 	

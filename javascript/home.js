@@ -18,7 +18,7 @@ var user = firebase.auth().currentUser;
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
-		console.log(user.email + " is signed in");
+		$('#loggedIn').html('Logged in as: ' + user.email);
 		//append this text to the doc
 	} else {
 		console.log("User is not signed in");
