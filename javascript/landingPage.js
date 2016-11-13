@@ -1,6 +1,6 @@
-$("button").click(addPerson);
+$("#friend").click(addPerson);
 
-$(document).on('click', '#delete', removePerson);
+// $(document).on('click', '#delete', removePerson);
 
 $("input").keypress(function(event) {
 

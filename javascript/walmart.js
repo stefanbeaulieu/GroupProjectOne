@@ -75,18 +75,19 @@ function runQuery(queryURL){
 //Methods
 
 	//Run the click function on the search parameter
-	$('button').on('click', function(){
+	$('#addCategoryButton').on('click', function(addCategory){
 
 		//Initially set productInfo to zero
 		productInfo = 0;
 
 		//Empties the section associated with products
-		$('#prodSection').empty();
+		// $('#prodSection').empty();
 
 		//Set Search Term
 		var searchTerm = $('#addCategory').val().trim();
 		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=20&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&sort=price&order=asc";
 
+		$('#prodSection').append(searchTerm);
 
 		//Set Min Price
 		var minPrice = $('#minPrice').val();
