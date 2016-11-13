@@ -3,12 +3,12 @@
 
 // Initialize Firebase
 var config = {
-    apiKey: "AIzaSyCW5J7X-v5m9yX2_F9eAHzyGIHl6OBfgQw",
-    authDomain: "giflygroupproject.firebaseapp.com",
-    databaseURL: "https://giflygroupproject.firebaseio.com",
-    storageBucket: "giflygroupproject.appspot.com",
-    messagingSenderId: "1047383400502"
-  };
+	apiKey: "AIzaSyCW5J7X-v5m9yX2_F9eAHzyGIHl6OBfgQw",
+	authDomain: "giflygroupproject.firebaseapp.com",
+	databaseURL: "https://giflygroupproject.firebaseio.com",
+	storageBucket: "giflygroupproject.appspot.com",
+	messagingSenderId: "1047383400502"
+};
 firebase.initializeApp(config);
 
 
@@ -19,15 +19,16 @@ var user = firebase.auth().currentUser;
 //Create new user
 $("#signupButton").on('click', function() {
 
+	var name = $("#name").val().trim();
 	var email = $("#email").val().trim();
 	var password = $("#password").val().trim();
 
 	//Create new user
 	firebase.auth().createUserWithEmailAndPassword(email, password)
-		.then(function(){
-			console.log(arguments);
-		})
-		.catch(function(error) {
+	.then(function(){
+		console.log(arguments);
+	})
+	.catch(function(error) {
 
 		 	// Handle Errors here.
 		 	var errorCode = error.code;
@@ -45,6 +46,14 @@ $("#signupButton").on('click', function() {
 	  }
 	  
 	});
+
+
+
+	//Manually add this user to the database to reference when they are signed in through Authentication
+	database.ref('/users' + email).set({
+		name: name,
+		email: email
+	})
 
 	//Clear inputs after submit
 	$("#email").val("");
@@ -87,7 +96,6 @@ $("#loginButton").on('click', function() {
 	  	$('#myModal').modal($('.modal-body').html(errorMessage));
 	  }
 
-	});
 	
 	return false;
 });

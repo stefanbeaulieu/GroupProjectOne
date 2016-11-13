@@ -8,7 +8,7 @@ var minPrice = 0;
 var maxPrice = 0;
 
 //Query URL for the API search
-var queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=" + numResults + "&format=json&apiKey=" + authKey + "&sort=price&order=asc";
+var queryURLBase = "http://api.walmartlabs.com/v1/search?query=" + product + "&numItems=" + numResults + "&format=json&apiKey=" + authKey + "&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]";
 
 //Array to hold product info
 var productInfo = 0;
@@ -20,13 +20,13 @@ function runQuery(queryURL){
 
 	//Ajax to get informtion from Walmart
 	$.ajax({
-		url: queryURL,
+		url: queryURLBase,
 	 	method: 'GET',
 	 	dataType: "jsonp",
 	 	crossDomain: true,
-	})
+	});
 
-	.done(function(wallData){
+	.done(function(wallData)) {
 
 		//Console logging the URL for troubleshooting
 		console.log("-------------");
@@ -49,27 +49,27 @@ function runQuery(queryURL){
 			wellSection.addClass('well');
 
 			//Display the title
-			wellSection.append('<p>' + wallData.response.items[i].name + "</p>");
+			wellSection.append($("<p>").html(wallData.name));
 
 			//Display the product image
-			var image = $('<img>').attr("src", wallData.response.items[i].thumbnailImage);
+			var image = $('<img>').attr("src", wallData.thumbnailImage);
 
 			//Append image
 			wellSection.append(image);
 
 			//Display the price
-			wellSection.append($("<p>").html(wallData.response.items[i].salePrice));
+			wellSection.append($("<p>").html(wallData.salePrice));
 
 			//Display the description
-			wellSection.append($("<p>").html(wallData.response.items[i].shortDescription));
+			wellSection.append($("<p>").html(wallData.shortDescription));
 
 			//Append Div to home.html
-			('#prodSection').append(wellSection);
+			('#').append(wellSection);
 
 
 			
 		}
-	});
+	}
 }
 
 //Methods
@@ -81,12 +81,10 @@ function runQuery(queryURL){
 		productInfo = 0;
 
 		//Empties the section associated with products
-		$('#prodSection').empty();
+		$('#').empty();
 
 		//Set Search Term
 		var searchTerm = $('#addCategory').val().trim();
-		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=20&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&sort=price&order=asc";
-
 
 		//Set Min Price
 		var minPrice = $('#minPrice').val();
