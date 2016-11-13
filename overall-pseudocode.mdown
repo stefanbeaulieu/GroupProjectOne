@@ -14,3 +14,24 @@ OVERALL PSUEDOCODE FOR SITE
 12. User can then click on presents to run api to pull and populate to screen.
 13. User can click on presents to proceed to product page to purchase.
 14. DONE - Use a technology or library we haven't used in class - JSONP 
+
+PROJECT REQUIREMENTS
+
+1. DONE - Must uses at least two APIs
+    1. firebase
+    2. Walmart
+2. DONE - Must use AJAX to pull data 
+3. DONE - Must utilize at least one new library or technology that we haven’t discussed
+    4. JSONP 
+4. Must have a polished frontend / UI 
+5. Must meet good quality coding standards (indentation, scoping, naming)
+6. DONE - Must NOT use alerts, confirms, or prompts (look into modals!)
+    1. Modals used for error messages on Login and create user
+7. Must have some sort of repeating element (table, columns, etc)
+    1. The displays items in the category 
+8. DONE - Must use Bootstrap or Alternative CSS Framework
+    1. Used BootStrap CSS and JS
+9. Must be Deployed (Heroku or Firebase)
+10. DONE - Must have User Input Validation 
+    1. Modals
+
