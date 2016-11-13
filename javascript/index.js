@@ -16,9 +16,10 @@ var database = firebase.database();
 var auth = firebase.auth();
 var user = firebase.auth().currentUser;
 
-//Create new user
+//Sign up button click function
 $("#signupButton").on('click', function() {
 
+	//Input values
 	var name = $("#name").val().trim();
 	var email = $("#email").val().trim();
 	var password = $("#password").val().trim();
@@ -36,16 +37,35 @@ $("#signupButton").on('click', function() {
 
 		 	//Error message
 		 	if (error) {
+		 		console.log(errorMessage);
+		 	}
+		 });
+
+	//Manually add this user to the database to reference when they are signed in through Authentication
+	database.ref('users/').push({
+		email: email,
+		name: name,
+		people: {},
+	})
+	.then(function(){
+		console.log(arguments);
+		//GIVES ERROR, DOES NOT SIGN IN USER
+		//redirect after signing up (Firebase automatically signs in after creating account)
+		// window.location.href = "home.html";
+	})
+	.catch(function(error) {
+
+		 	// Handle Errors here.
+		 	var errorCode = error.code;
+		 	var errorMessage = error.message;
+
+		 	//Error message
+		 	//GIVES ERROR MESSAGE
+		 	if (error) {
 		 		alert(errorMessage);
 		 	}
 		 });
 
-
-	//Manually add this user to the database to reference when they are signed in through Authentication
-	database.ref('/users' + email).set({
-		name: name,
-		email: email
-	})
 
 	//Clear inputs after submit
 	$("#email").val("");
@@ -58,7 +78,6 @@ $("#signupButton").on('click', function() {
 });
 
 //Sign in user
-
 $("#loginButton").on('click', function() {
 
 	var email = $("#signInEmail").val().trim();
@@ -74,10 +93,18 @@ $("#loginButton").on('click', function() {
 	})
 	.catch(function(error) {
 		if (error) {
-			alert(error);
+			console.log(error);
 		}
 	});
 	
 	return false;
 });
 
+//Redirect user after creating new account. See line 52.
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+		window.location.href = "home.html";
+	} else {
+		console.log("User is not signed in");
+	}
+})
