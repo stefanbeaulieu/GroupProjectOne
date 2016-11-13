@@ -3,11 +3,11 @@
 
 // Initialize Firebase
 var config = {
-	apiKey: "AIzaSyCW5J7X-v5m9yX2_F9eAHzyGIHl6OBfgQw",
-	authDomain: "giflygroupproject.firebaseapp.com",
-	databaseURL: "https://giflygroupproject.firebaseio.com",
-	storageBucket: "giflygroupproject.appspot.com",
-	messagingSenderId: "1047383400502"
+  apiKey: "AIzaSyCW5J7X-v5m9yX2_F9eAHzyGIHl6OBfgQw",
+  authDomain: "giflygroupproject.firebaseapp.com",
+  databaseURL: "https://giflygroupproject.firebaseio.com",
+  storageBucket: "giflygroupproject.appspot.com",
+  messagingSenderId: "1047383400502"
 };
 firebase.initializeApp(config);
 
@@ -19,49 +19,49 @@ var user = firebase.auth().currentUser;
 //Create new user
 $("#signupButton").on('click', function() {
 
-	var name = $("#name").val().trim();
-	var email = $("#email").val().trim();
-	var password = $("#password").val().trim();
+  var name = $("#name").val().trim();
+  var email = $("#email").val().trim();
+  var password = $("#password").val().trim();
 
-	//Create new user
-	firebase.auth().createUserWithEmailAndPassword(email, password)
-	.then(function(){
-		console.log(arguments);
-	})
-	.catch(function(error) {
+  //Create new user
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(function() {
+      console.log(arguments);
+    })
+    .catch(function(error) {
 
-		 	// Handle Errors here.
-		 	var errorCode = error.code;
-		 	var errorMessage = error.message;
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
 
-		 	//Error message
-		 	if (errorCode === 'auth/wrong-password') {
-    	$('#myModal').modal($('.modal-body').html(errorMessage));
-	  } else if (errorCode === 'auth/user-not-found') {
-	  	$('#myModal').modal($('.modal-body').html(errorMessage));
-	  } else if (errorCode === 'auth/user-disabled') {
-	  	$('#myModal').modal($('.modal-body').html(errorMessage));
-	  } else if (errorCode === 'auth/invalid-email') {
-	  	$('#myModal').modal($('.modal-body').html(errorMessage));
-	  }
-	  
-	});
+      //Error message
+      if (errorCode === 'auth/wrong-password') {
+        $('#myModal').modal($('.modal-body').html(errorMessage));
+      } else if (errorCode === 'auth/user-not-found') {
+        $('#myModal').modal($('.modal-body').html(errorMessage));
+      } else if (errorCode === 'auth/user-disabled') {
+        $('#myModal').modal($('.modal-body').html(errorMessage));
+      } else if (errorCode === 'auth/invalid-email') {
+        $('#myModal').modal($('.modal-body').html(errorMessage));
+      }
+
+    });
 
 
 
-	//Manually add this user to the database to reference when they are signed in through Authentication
-	database.ref('/users' + email).set({
-		name: name,
-		email: email
-	})
+  //Manually add this user to the database to reference when they are signed in through Authentication
+  database.ref('/users' + email).set({
+    name: name,
+    email: email
+  })
 
-	//Clear inputs after submit
-	$("#email").val("");
-	$("#password").val("");
-	$("#name").val("");
+  //Clear inputs after submit
+  $("#email").val("");
+  $("#password").val("");
+  $("#name").val("");
 
-	//don't refresh page
-	return false;
+  //don't refresh page
+  return false;
 
 });
 
@@ -69,34 +69,33 @@ $("#signupButton").on('click', function() {
 
 $("#loginButton").on('click', function() {
 
-	var email = $("#signInEmail").val().trim();
-	var password = $("#signInPassword").val().trim();
+  var email = $("#signInEmail").val().trim();
+  var password = $("#signInPassword").val().trim();
 
-	firebase.auth().signInWithEmailAndPassword(email, password)
-	.then(function(){
-		$("#signInEmail").val("");
-		$("#signInPassword").val("");
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(function() {
+      $("#signInEmail").val("");
+      $("#signInPassword").val("");
 
-		window.location.href = "home.html";
+      window.location.href = "home.html";
 
-	})
-	.catch(function(error) {
+    })
+    .catch(function(error) {
 
-		// Handle Errors here.
-	 	var errorCode = error.code;
-	 	var errorMessage = error.message;
-	
-		if (errorCode === 'auth/wrong-password') {
-    	$('#myModal').modal($('.modal-body').html(errorMessage));
-	  } else if (errorCode === 'auth/user-not-found') {
-	  	$('#myModal').modal($('.modal-body').html(errorMessage));
-	  } else if (errorCode === 'auth/user-disabled') {
-	  	$('#myModal').modal($('.modal-body').html(errorMessage));
-	  } else if (errorCode === 'auth/invalid-email') {
-	  	$('#myModal').modal($('.modal-body').html(errorMessage));
-	  }
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
 
-	
-	return false;
+      if (errorCode === 'auth/wrong-password') {
+        $('#myModal').modal($('.modal-body').html(errorMessage));
+      } else if (errorCode === 'auth/user-not-found') {
+        $('#myModal').modal($('.modal-body').html(errorMessage));
+      } else if (errorCode === 'auth/user-disabled') {
+        $('#myModal').modal($('.modal-body').html(errorMessage));
+      } else if (errorCode === 'auth/invalid-email') {
+        $('#myModal').modal($('.modal-body').html(errorMessage));
+      }
+    })
+  return false;
+
 });
-
