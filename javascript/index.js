@@ -34,9 +34,16 @@ $("#signupButton").on('click', function() {
 		 	var errorMessage = error.message;
 
 		 	//Error message
-		 	if (error) {
-		 		alert(errorMessage);
-		 	}
+		 	if (errorCode === 'auth/wrong-password') {
+    	$('#myModal').modal($('.modal-body').html(errorMessage));
+	  } else if (errorCode === 'auth/user-not-found') {
+	  	$('#myModal').modal($('.modal-body').html(errorMessage));
+	  } else if (errorCode === 'auth/user-disabled') {
+	  	$('#myModal').modal($('.modal-body').html(errorMessage));
+	  } else if (errorCode === 'auth/invalid-email') {
+	  	$('#myModal').modal($('.modal-body').html(errorMessage));
+	  }
+	  
 	});
 
 	//Clear inputs after submit
@@ -65,11 +72,21 @@ $("#loginButton").on('click', function() {
 
 	})
 	.catch(function(error) {
-		if (error) {
 
-			alert(error);
+		// Handle Errors here.
+	 	var errorCode = error.code;
+	 	var errorMessage = error.message;
+	
+		if (errorCode === 'auth/wrong-password') {
+    	$('#myModal').modal($('.modal-body').html(errorMessage));
+	  } else if (errorCode === 'auth/user-not-found') {
+	  	$('#myModal').modal($('.modal-body').html(errorMessage));
+	  } else if (errorCode === 'auth/user-disabled') {
+	  	$('#myModal').modal($('.modal-body').html(errorMessage));
+	  } else if (errorCode === 'auth/invalid-email') {
+	  	$('#myModal').modal($('.modal-body').html(errorMessage));
+	  }
 
-		}
 	});
 	
 	return false;

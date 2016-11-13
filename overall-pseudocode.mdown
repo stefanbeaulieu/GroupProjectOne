@@ -1,0 +1,16 @@
+OVERALL PSUEDOCODE FOR SITE
+
+1. DONE - User lands at login page
+2. DONE - User enters username/password OR creates a login
+3. DONE - Info is then sent to firebase to create user
+4. DONE - User is then directed to “setup” page
+5. User then inputs friends name to start shopping list for
+6. Users friend list will show up on left side of page
+7. User then inputs presents for friends
+8. This information is stored in firebase under user login credentials - Parent(friend) child (presents)
+9. User then proceeds to home page
+10. Friends will populate on left hand side of home page
+11. When user clicks on friends, presents will drop down.
+12. User can then click on presents to run api to pull and populate to screen.
+13. User can click on presents to proceed to product page to purchase.
+14. DONE - Use a technology or library we haven't used in class - JSONP 
