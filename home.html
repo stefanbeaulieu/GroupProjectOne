@@ -23,6 +23,7 @@
   <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
   <!-- Firebase Authentication -->
   <!-- <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase-auth.js"></script> -->
+
 </head>
 
 <body>
@@ -33,9 +34,9 @@
       <h3 class="subbanner">Lorem Ipsum is simply dummy text of the </h3>
       <div class="col-lg-6 col-lg-push-3">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Add a friend...">
+          <input type="text" id="newperson" class="form-control" placeholder="Add a friend...">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Add!</button>
+            <button class="btn btn-default" id="friend" type="button">Add!</button>
           </span>
         </div>
         <!-- /input-group -->
@@ -48,24 +49,27 @@
         <div class="list-group">
           <ul class="list-group">
             <li class="list-group-item list-group-item-warning">Your Friend List</li>
-            <a href="#" class="list-group-item">dasda</a>
-            <a href="#" class="list-group-item">dasda</a>
-            <a href="#" class="list-group-item">dasda</a>
+            <li id="people"></li>
+           
           </ul>
         </div>
       </div>
       <!-- Ends <div class="col-sm-4 listPeople"> -->
       <div class="row">
         <div class="input-group col-lg-6 col-lg-push-1">
-          <input type="text" class="form-control" placeholder="Add a category...">
+          <input type="text" class="form-control" id="addCategory" placeholder="Add a category...">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Add!</button>
+            <button class="btn btn-default" id="addCategoryButton" type="button">Add!</button>
           </span>
         </div>
         <!-- /input-group -->
         <div class="row">
 
           <div class="col-sm-3 col-md-3 col-lg-2 product">
+            <div id="prodSection"></div>
+          </div>
+
+          <!-- <div class="col-sm-3 col-md-3 col-lg-2 product">
             <h3>title</h3>
             <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
             <p>test test test</p>
@@ -81,13 +85,7 @@
             <h3>title</h3>
             <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
             <p>test test test</p>
-          </div>
-
-          <div class="col-sm-3 col-md-3 col-lg-2 product">
-            <h3>title</h3>
-            <img src="http://lorempixel.com/output/animals-q-g-150-150-9.jpg" alt="">
-            <p>test test test</p>
-          </div>
+          </div> -->
 
         </div> <!-- End row 1-->
         
@@ -97,6 +95,7 @@
   <!-- Ends <div class="col-sm-8 search"> -->
   <script type="text/javascript" src="javascript/home.js"></script>
   <script type="text/javascript" src="javascript/walmart.js"></script>
+   <script src="javascript/landingPage.js"></script>
 </body>
 
 </html>
