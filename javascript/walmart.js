@@ -55,6 +55,9 @@ function runQuery(queryURL){
 			//Display the price
 			var price = $('<p>' + wallData.items[i].salePrice + '</p>');
 
+			//Display Buy Now Button
+			var buyNow = $('<a href="' + wallData.items[i].productUrl + '" class="btn btn-success" target="_blank">Buy Now</a>');
+
 			//Display the description
 			var description = $('<p>' + wallData.items[i].longDescription + '</p>');
 
@@ -62,6 +65,7 @@ function runQuery(queryURL){
 			wellSection.append(title);
 			wellSection.append(image);
 			wellSection.append(price);
+			wellSection.append(buyNow);
 			wellSection.append(description);
 
 			$('#prodSection').append(wellSection);
