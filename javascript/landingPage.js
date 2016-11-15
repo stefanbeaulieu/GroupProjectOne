@@ -1,6 +1,6 @@
 $("#friend").click(addPerson);
 
-$(document).on('click', '#delete', removePerson);
+$('#friend').on('click', '#delete', removePerson);
 
 $("input").keypress(function(event) {
 
@@ -19,7 +19,7 @@ function addPerson() {
   // Nest our content in another div in another div 
   // with a span containing an X.
   // Notice the id? We can delete the task whenever the user clicks the span.
-  $('#people').append('<li>' + person + '<span id="delete"> Remove</span></li>');
+  $('#people').append('<div class="list-group-item"><li>' + person + '<span id="delete" class="text-right"> Remove</span></li></div>');
 
   // Clear the content of the input box.
   $('#newperson').val('');
@@ -29,6 +29,6 @@ function addPerson() {
 function removePerson() {
   // Grab the closest div to the element that was clicked and remove it.
   // (In this case, the closest element is the one that's encapsulating it.)
-  $(this).closest("li").remove();
+  $(this).closest("div").remove();
 }
 

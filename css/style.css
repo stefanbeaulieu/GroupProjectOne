@@ -128,3 +128,7 @@ FONT
   text-align: right;
   margin: 2px 0 0 0;
 }
+
+#delete {
+  float: right;
+}
