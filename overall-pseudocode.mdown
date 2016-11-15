@@ -12,7 +12,7 @@ OVERALL PSUEDOCODE FOR SITE
 10. DONE - Friends will populate on left hand side of home page
 11. When user clicks on friends, presents will drop down.
 12. User can then click on presents to run api to pull and populate to screen.
-13. User can click on presents to proceed to product page to purchase.
+13. DONE - User can click on presents to proceed to product page to purchase.
 14. DONE - Use a technology or library we haven't used in class - JSONP 
 
 PROJECT REQUIREMENTS
