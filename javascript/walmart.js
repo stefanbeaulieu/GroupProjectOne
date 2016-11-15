@@ -56,7 +56,7 @@ function runQuery(queryURL){
 			var price = $('<p>' + wallData.items[i].salePrice + '</p>');
 
 			//Display the description
-			var description = $(('<p>').html(wallData.items[i].longDescription + ('</p>')));
+			var description = $('<p>' + wallData.items[i].longDescription + '</p>');
 
 			//Append Div to home.html
 			wellSection.append(title);
