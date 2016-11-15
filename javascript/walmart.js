@@ -81,7 +81,7 @@ function runQuery(queryURL){
 		productInfo = 0;
 
 		//Empties the section associated with products
-		// $('#prodSection').empty();
+		$('#prodSection').empty();
 
 		//Set Search Term
 		var searchTerm = $('#addCategory').val().trim();
