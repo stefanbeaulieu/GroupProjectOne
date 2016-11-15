@@ -9,7 +9,7 @@ OVERALL PSUEDOCODE FOR SITE
 7. User then inputs presents for friends
 8. This information is stored in firebase under user login credentials - Parent(friend) child (presents)
 9. User then proceeds to home page
-10. Friends will populate on left hand side of home page
+10. DONE - Friends will populate on left hand side of home page
 11. When user clicks on friends, presents will drop down.
 12. User can then click on presents to run api to pull and populate to screen.
 13. User can click on presents to proceed to product page to purchase.
