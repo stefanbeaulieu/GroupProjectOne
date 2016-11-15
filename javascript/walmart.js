@@ -106,7 +106,13 @@ function runQuery(queryURL){
 
 	//Clear the products that are currently being shown
 	$('#clearAll').on('click', function(){
+		
 		productInfo = 0;
+		
 		$('#prodSection').empty();
+
+		$('#addCategory').val("");
+
+		return false;
 	});
 
