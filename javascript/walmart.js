@@ -58,6 +58,9 @@ function runQuery(queryURL){
 			//Display Buy Now Button
 			var buyNow = $('<a href="' + wallData.items[i].productUrl + '" class="btn btn-success" target="_blank">Buy Now</a>');
 
+			//display add to list
+			// var addList = $()
+
 			//Display the description
 			var description = $('<p>' + wallData.items[i].longDescription + '</p>');
 
@@ -89,15 +92,23 @@ function runQuery(queryURL){
 
 		//Set Search Term
 		var searchTerm = $('#addCategory').val().trim();
-		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=20&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&sort=price&order=asc";
-
-		// $('#prodSection').append(wellSection);
 
 		//Set Min Price
 		var minPrice = $('#minPrice').val();
 
 		//Set Max Price
 		var maxPrice = $('#maxPrice').val();
+
+		//API Query
+		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=20&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
+
+		// $('#prodSection').append(wellSection);
+
+		// //Set Min Price
+		// var minPrice = $('#minPrice').val();
+
+		// //Set Max Price
+		// var maxPrice = $('#maxPrice').val();
 
 
 		//Pass info into parameters to run function
