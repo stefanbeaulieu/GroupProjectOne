@@ -32,50 +32,66 @@
     <div class="jumbotron">
       <h1 class="banner">Giftly</h1>
       <h3 class="subbanner">Lorem Ipsum is simply dummy text of the </h3>
-      <div class="col-sm-push-1 col-sm-10 col-md-push-2 col-md-8 col-lg-push-3 col-lg-6">
-        <div class="input-group">
-          <input type="text" id="newperson" class="form-control" placeholder="Add a friend...">
-          <span class="input-group-btn">
-            <button class="btn btn-default" id="friend" type="button">Add!</button>
-          </span>
+      <div class="row">
+      <div class="col-sm-12 text-center">
+        <div class="form-inline" id="addFriendForm">
+          <div class="form-group">
+            <label for="addFriend">Add a Person To Shop For: </label>
+              <input type="text" id="newperson" class="form-control" placeholder="Add a person...">
+          </div>
+          <button class="btn btn-default" id="friend" type="button" onclick="submitClick()">Add!</button>
+          
+        </div>
+         
         </div>
         <!-- /input-group -->
       </div>
       <!-- /.col-lg-6 -->
-    </div>
-    <div class="row">
-      <div class=col-sm-3></div>
-        <div class="input-group col-sm-6 text-center">
-        <!-- <div class="input-group col-xs-8 col-xs-push-2 col-sm-6 col-sm-push-1 col-md-6 col-lg-6 col-lg-push-1"> -->
+      </div>
+    
+    
+<!--     Start form for adding products -->
+    <div class="row searchProd">
+      
+      <div class="col-sm-12 text-center">
         
-          <input type="text" class="form-control" id="addCategory" placeholder="Add a category...">
-          
-            <span id=-"minPriceText">Min Price:</span>
-            <select name="minPrice" id="minPrice">
+        <form class="form-inline">
+
+          <div class="form-group">
+
+            <label for="addCategory">Product Name: </label>
+            <input type="text" class="form-control" id="addCategory" placeholder="Add a product..." maxlength="100">
+
+            <label for="minPrice">Min Price: </label>
+            <select class="form-control" id="minPrice">
               <option value="0">$0</option>
               <option value="50">$50</option>
               <option value="100">$100</option>
               <option value="150">$150</option>
               <option value="200">$200</option>
             </select>
-            <span id="maxPriceText">Max Price:</span>
-            <select name="maxPrice" id="maxPrice">
-              <option value="50">$50</option>
+
+            <label for="maxPrice">Max Price: </label>
+            <select class="form-control" id="maxPrice">
+            <option value="50">$50</option>
               <option value="100">$100</option>
               <option value="150">$150</option>
               <option value="200">$200</option>
               <option value="500">$500</option>
               <option value="1000">$1000</option>
             </select>
-            
-            <span class="input-group-btn">
-            <button class="btn btn-default" id="addCategoryButton" type="button">Add!</button>
-            <button class="btn btn-defualt" id="clearAll" type="button">Clear</button>
-            </span>
+          
+          </div>
+
+          <button type="submit" class="btn btn-default" id="addCategoryButton">Search for Product</button>
+          <button type="submit" class="btn btn-default" id="clearAll">Clear</button>
+
+        </form>
+          
       </div>
-      <div class="col-sm-3"></div>
+      
     </div>
-    <!-- ends div.jumbrotron -->
+    
     <div class="row">
       <div class="col-sm-3 listPeople">
         <div class="list-group">
@@ -98,7 +114,8 @@
         
       </div>
     </div>
-  </div>
+
+  
   <!-- Ends <div class="col-sm-8 search"> -->
   <script type="text/javascript" src="javascript/home.js"></script>
   <script type="text/javascript" src="javascript/walmart.js"></script>
