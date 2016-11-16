@@ -58,10 +58,10 @@ function runQuery(queryURL){
 			var price = $('<p class="prodPrice">$' + wallData.items[i].salePrice + '</p>');
 
 			//Display Buy Now Button
-			var buyNow = $('<a href="' + wallData.items[i].productUrl + '" class="btn btn-success" target="_blank">Click Here for More Info</a>');
+			var buyNow = $('<a href="' + wallData.items[i].productUrl + '" class="btn btn-success prodButton" target="_blank">Click Here for More Info</a>');
 
 			//display add to list
-			// var addList = $()
+			var addList = $('<button class="btn btn-default">Add to ...</button>');
 
 			//Display the description
 			// var description = $('<p>' + wallData.items[i].longDescription + '</p>');
@@ -73,6 +73,7 @@ function runQuery(queryURL){
 			wellSection.append(image);
 			wellSection.append(price);
 			wellSection.append(buyNow);
+			wellSection.append(addList);
 			// wellSection.append(description);
 
 			$('#prodSection').append(wellSection);
@@ -108,7 +109,7 @@ function runQuery(queryURL){
 		//API Query
 		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=21&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
 
-		// $('#prodSection').append(wellSection);
+		
 
 
 		//Pass info into parameters to run function
