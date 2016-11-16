@@ -16,7 +16,7 @@ function addPerson() {
   var person = $('#newperson').val();
 
    if (person == ""){
-      alert("Please Input Name")
+  
 
       return;
 
