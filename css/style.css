@@ -56,6 +56,10 @@ td {
 
 }
 
+.prodButton{
+  margin-bottom: 5px;
+}
+
 /***********************
 HEADINGS
 ***********************/
@@ -147,6 +151,9 @@ button:hover {
 /***********************
 FONT
 ***********************/
+.list-group-item{
+  font-size: 18px;
+}
 
 .list-group-item-info {
   font-size: 1.5em;
@@ -167,6 +174,10 @@ FONT
   color: #aaa;
   text-align: right;
   margin: 2px 0 0 0;
+}
+
+#people{
+  font-size: 16px;
 }
 
 #delete {
