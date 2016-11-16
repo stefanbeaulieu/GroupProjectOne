@@ -16,28 +16,32 @@ td {
   padding: 10px 15px;
 }
 
-.form-control {}
+#newperson{
+  width: 300px;
+}
 
 #logo {
   margin-top: 20px;
 }
 
-/*.login-container {
-  width: 50%;
-  margin: 0px auto;
-}*/
 
 .signup-container {
   width: 50%;
   margin: 0px auto;
 }
 
-/*#prodSection{
-  height: 400px;
-}*/
+
 #bottomButton{
   position: absolute;
   bottom: 0;
+}
+
+.inline{
+  display: inline;
+}
+
+.searchProd{
+  margin-bottom: 25px;
 }
 
 /***********************
@@ -108,6 +112,23 @@ button:hover {
   margin-left: 0px;
 }
 
+#addCategory{
+  margin-right: 15px;
+}
+
+#minPrice{
+  margin-right: 15px;
+}
+
+#maxPrice{
+  margin-right: 15px;
+}
+
+#addFriendForm{
+  margin-top: 20px;
+
+}
+
 
 
 
@@ -140,6 +161,4 @@ FONT
   float: right;
 }
 
-p.heading{
-  padding-top: 100px;
-}
+
