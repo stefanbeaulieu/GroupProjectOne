@@ -13,7 +13,6 @@ firebase.initializeApp(config);
 
 
 var database = firebase.database();
-
 var user = firebase.auth().currentUser;
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -24,3 +23,4 @@ firebase.auth().onAuthStateChanged(function(user) {
 		console.log("User is not signed in");
 	}
 });
+

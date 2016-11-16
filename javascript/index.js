@@ -28,6 +28,7 @@ $("#signupButton").on('click', function() {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function() {
       console.log(arguments);
+      newUser();
     })
     .catch(function(error) {
 
@@ -47,37 +48,6 @@ $("#signupButton").on('click', function() {
       }
 
     });
-      
-  //Manually add this user to the database to reference when they are signed in through Authentication
-  database.ref('users/').push({
-    email: email,
-    name: name,
-    people: {},
-  })
-  .then(function(){
-    console.log(arguments);
-    //GIVES ERROR, DOES NOT SIGN IN USER
-    //redirect after signing up (Firebase automatically signs in after creating account)
-    // window.location.href = "home.html";
-  })
-  .catch(function(error) {
-
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-
-      //Error message
-      //GIVES ERROR MESSAGE
-      if (error) {
-        alert(errorMessage);
-      }
-  });
-
-  //Manually add this user to the database to reference when they are signed in through Authentication
-  database.ref('/users' + email).set({
-    name: name,
-    email: email
-  })
 
   //Clear inputs after submit
   $("#email").val("");
@@ -88,6 +58,36 @@ $("#signupButton").on('click', function() {
   return false;
 
 });
+
+//Add new user to database using Firebase UID
+  function newUser () {
+
+    var uid = firebase.auth().currentUser.uid;
+    // uid = uid.toString();
+    console.log(uid);
+
+    database.ref().child("users").child(uid).set({
+      uid: uid,
+    })
+    .then(function(){
+      console.log(arguments);
+      window.location.href = "home.html";
+    })
+    .catch(function(error) {
+
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        //Error message
+        if (error) {
+          alert(errorMessage);
+        }
+    });
+  }
+
+//calls that function
+//newUser();
 
 //Sign in user
 $("#loginButton").on('click', function() {
@@ -122,12 +122,46 @@ $("#loginButton").on('click', function() {
 
 });
 
-//Redirect user after creating new account. See line 52.
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    window.location.href = "home.html";
-  } else {
-    console.log("User is not signed in");
-  }
-})
+//Redirect user after creating new account
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      database.ref().child("users").child(user.uid).once("value").then(function(snapshot){
+        if(snapshot.exists()){
+
+          //user exists
+          window.location.href = "home.html";
+        }
+
+        //If that user doesn't exist, write their uid to the database
+        else {
+          newUser();
+        }
+
+      })
+    }
+      else {
+      console.log("User is not signed in");
+      }
+  });
+
+// //Redirect user after creating new account
+// firebase.auth().onAuthStateChanged(function(user) {
+//   if (user) {
+//       if(database.ref().child("users").child(user.uid).exists()){
+
+//         //user exists
+//         console.log("something");
+//         window.location.href = "home.html";
+//       }
+
+//       //If that user doesn't exist, write their uid to the database
+//       else {
+//         newUser();
+//       }
+//   }
+//     else {
+//     console.log("User is not signed in");
+//     }
+// });
+
 
