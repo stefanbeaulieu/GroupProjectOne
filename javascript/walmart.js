@@ -3,7 +3,7 @@ var authKey = "wwrbpbwxmqp2me6d8hvubuhs";
 
 //Variables that we can input information for the search query
 var searchTerm = "";
-var numResults = 20;
+var numResults = 21;
 var minPrice = 0;
 var maxPrice = 0;
 
@@ -49,13 +49,13 @@ function runQuery(queryURL){
 			var wellSection = $('<div class="productWell col-sm-3"></div>');
 			
 			//Display the title
-			var title = $('<p class="heading">' + wallData.items[i].name + '</p>');
+			var title = $('<p class="prodHeading">' + wallData.items[i].name.substr(0,40) + '...</p>');
 
 			//Display the product image
 			var image = $('<img>').attr('src', wallData.items[i].thumbnailImage);
 
 			//Display the price
-			var price = $('<p>$' + wallData.items[i].salePrice + '</p>');
+			var price = $('<p class="prodPrice">$' + wallData.items[i].salePrice + '</p>');
 
 			//Display Buy Now Button
 			var buyNow = $('<a href="' + wallData.items[i].productUrl + '" class="btn btn-success" target="_blank">Click Here for More Info</a>');
@@ -106,7 +106,7 @@ function runQuery(queryURL){
 		var maxPrice = $('#maxPrice').val();
 
 		//API Query
-		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=20&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
+		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=21&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
 
 		// $('#prodSection').append(wellSection);
 
