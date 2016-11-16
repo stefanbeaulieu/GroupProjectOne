@@ -86,7 +86,7 @@ firebaseHeadingRef.on('value', function(datasnapshot){
     
     var users = firebase.auth().currentUser;
 
-    $("#people").html(datasnapshot.val());
+    $("#people").html(JSON.stringify(datasnapshot.val()));;
     console.log(datasnapshot.val())
 });
 
