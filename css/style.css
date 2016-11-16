@@ -32,6 +32,13 @@ td {
   margin: 0px auto;
 }
 
+/*#prodSection{
+  height: 400px;
+}*/
+#bottomButton{
+  position: absolute;
+  bottom: 0;
+}
 
 /***********************
 HEADINGS
@@ -131,4 +138,8 @@ FONT
 
 #delete {
   float: right;
+}
+
+p.heading{
+  padding-top: 100px;
 }

@@ -43,39 +43,45 @@ function runQuery(queryURL){
 			//increase productInfo by one each loop
 			productInfo++;
 
+			
+
 			//Create HTML/Div well for product, price, description and price
-			var wellSection = $('<div class="productWell">');
+			var wellSection = $('<div class="productWell col-sm-3"></div>');
 			
 			//Display the title
-			var title = $('<p>' + wallData.items[i].name + '</p>');
+			var title = $('<p class="heading">' + wallData.items[i].name + '</p>');
 
 			//Display the product image
 			var image = $('<img>').attr('src', wallData.items[i].thumbnailImage);
 
 			//Display the price
-			var price = $('<p>' + wallData.items[i].salePrice + '</p>');
+			var price = $('<p>$' + wallData.items[i].salePrice + '</p>');
 
 			//Display Buy Now Button
-			var buyNow = $('<a href="' + wallData.items[i].productUrl + '" class="btn btn-success" target="_blank">Buy Now</a>');
+			var buyNow = $('<a href="' + wallData.items[i].productUrl + '" class="btn btn-success" target="_blank">Click Here for More Info</a>');
 
 			//display add to list
 			// var addList = $()
 
 			//Display the description
-			var description = $('<p>' + wallData.items[i].longDescription + '</p>');
-
+			// var description = $('<p>' + wallData.items[i].longDescription + '</p>');
+			// if (i%5 === 0) {
+			// 	$('</div><div class="row">')
+			// } else {
 			//Append Div to home.html
 			wellSection.append(title);
 			wellSection.append(image);
 			wellSection.append(price);
 			wellSection.append(buyNow);
-			wellSection.append(description);
+			// wellSection.append(description);
 
 			$('#prodSection').append(wellSection);
+		}
 
 
 			
-		}
+		
+
 	});
 }
 
@@ -103,12 +109,6 @@ function runQuery(queryURL){
 		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=20&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
 
 		// $('#prodSection').append(wellSection);
-
-		// //Set Min Price
-		// var minPrice = $('#minPrice').val();
-
-		// //Set Max Price
-		// var maxPrice = $('#maxPrice').val();
 
 
 		//Pass info into parameters to run function

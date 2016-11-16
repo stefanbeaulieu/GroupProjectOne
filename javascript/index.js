@@ -100,7 +100,7 @@ $("#loginButton").on('click', function() {
       $("#signInEmail").val("");
       $("#signInPassword").val("");
 
-      window.location.href = "home.html";
+      window.location.href = "/home.html";
     })
     .catch(function(error) {
 
