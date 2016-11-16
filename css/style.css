@@ -23,7 +23,9 @@ td {
 #logo {
   margin-top: 20px;
 }
-
+.list-group{
+  margin-right: 25px;
+}
 
 .signup-container {
   width: 50%;
@@ -42,6 +44,16 @@ td {
 
 .searchProd{
   margin-bottom: 25px;
+}
+
+.productWell{
+  margin: 0px 20px 20px 0px;
+  padding: 8px;
+  border: 1px gray solid;
+  border-radius: 5px;
+  text-align: center;
+
+
 }
 
 /***********************
@@ -161,4 +173,14 @@ FONT
   float: right;
 }
 
+.prodHeading{
+  font-size: 16px;
+
+}
+
+.prodPrice{
+  font-size: 16px;
+  color: red
+
+}
 
