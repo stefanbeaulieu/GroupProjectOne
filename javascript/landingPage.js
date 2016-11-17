@@ -7,7 +7,7 @@
 
 //    var firebaseRef = firebase.database().ref().child("users").child();
 
-//   firebaseRef.child('friends').on("value", function(snapshot) { 
+//   firebaseRef.child('friends').on("value", function(snapshot) {
 
 //     var data = snapshot.forEach(function(child) {
 
@@ -16,7 +16,7 @@
 //         var message = child.val();
 
 //         $('#people').append("<li>" + message + "</li>" );
-//     }); 
+//     });
 // });
 // });
 
@@ -33,7 +33,7 @@ $('#people').on('click', '#delete', removePerson);
 $("input").keypress(function(event) {
 
   if (event.which == 13) {
-    
+
     addPerson();
   }
 });
@@ -46,8 +46,8 @@ function addPerson() {
   var person = $('#newperson').val();
 
     // Creates if statement so the user can not leave the text box blank
-   if (person == ""){
-  
+   if (person === ""){
+
 
       return;
 
@@ -61,9 +61,9 @@ function addPerson() {
   // Clear the content of the input box.
   $('#newperson').val('');
 
-  console.log(person)
+  console.log(person);
 
- 
+
 }
 
 // Variables to retrieve the information being inputted
@@ -83,11 +83,11 @@ firebaseHeadingRef.on('value', function(datasnapshot){
   fireHeading.innerText = datasnapshot.val();
 
   $(document).ready(function(){
-    
+
     var users = firebase.auth().currentUser;
 
-    $("#people").html(JSON.stringify(datasnapshot.val()));;
-    console.log(datasnapshot.val())
+    $("#people").html(JSON.stringify(datasnapshot.val()));
+    console.log(datasnapshot.val());
 });
 
 });
@@ -109,7 +109,7 @@ function submitClick() {
 
   firebaseRef.push().set(messageText);
 
-  console.log(messageText)
+  console.log(messageText);
 
 
 }
@@ -120,17 +120,16 @@ function submitClick() {
 function removePerson() {
   // Grab the closest div to the element that was clicked and remove it.
    $(this).closest("div").remove();
-   
+
    // Allegedly attempting to remove the item from the database on click
 
    var users = firebase.auth().currentUser;
 
-  var firebaseRef = firebase.database().ref().child("users").child(users.uid).child("friend")
-   
+  var firebaseRef = firebase.database().ref().child("users").child(users.uid).child("friend");
+
     firebaseRef.child("friend").remove();
 
 
 
-    console.log("friend")
+    console.log("friend");
 }
- 

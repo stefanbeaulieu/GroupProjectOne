@@ -117,7 +117,7 @@ $("#loginButton").on('click', function() {
       } else if (errorCode === 'auth/invalid-email') {
         $('#myModal').modal($('.modal-body').html(errorMessage));
       }
-    })
+    });
   return false;
 
 });
@@ -137,7 +137,7 @@ $("#loginButton").on('click', function() {
           newUser();
         }
 
-      })
+      });
     }
       else {
       console.log("User is not signed in");
@@ -163,5 +163,3 @@ $("#loginButton").on('click', function() {
 //     console.log("User is not signed in");
 //     }
 // });
-
-

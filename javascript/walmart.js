@@ -34,7 +34,7 @@ function runQuery(queryURL){
 		console.log("-------------");
 
 		//Console logging wallData to show as an object
-		console.log(wallData)
+		console.log(wallData);
 		console.log("-------------");
 
 		//Loop through and provide the correct amount of products
@@ -43,11 +43,11 @@ function runQuery(queryURL){
 			//increase productInfo by one each loop
 			productInfo++;
 
-			
+
 
 			//Create HTML/Div well for product, price, description and price
 			var wellSection = $('<div class="productWell col-sm-3"></div>');
-			
+
 			//Display the title
 			var title = $('<p class="prodHeading">' + wallData.items[i].name.substr(0,40) + '...</p>');
 
@@ -80,8 +80,8 @@ function runQuery(queryURL){
 		}
 
 
-			
-		
+
+
 
 	});
 }
@@ -109,7 +109,7 @@ function runQuery(queryURL){
 		//API Query
 		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=21&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
 
-		
+
 
 
 		//Pass info into parameters to run function
@@ -122,13 +122,12 @@ function runQuery(queryURL){
 
 	//Clear the products that are currently being shown
 	$('#clearAll').on('click', function(){
-		
+
 		productInfo = 0;
-		
+
 		$('#prodSection').empty();
 
 		$('#addCategory').val("");
 
 		return false;
 	});
-
