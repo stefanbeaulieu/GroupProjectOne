@@ -64,6 +64,20 @@ function runQuery(queryURL){
 												//append list item to list
 												$("#unorderedList").append(newListItem);
 
+												$(newListItem).on('click', function() {
+													var friendPath = database.ref().child("users").child(user.uid).child(key);
+													console.log(key);
+													console.log(friendPath);
+
+													var newItemKey = friendPath.push().key;
+													var newChildPath = friendPath.child(newItemKey);
+
+													//get walmart info from product div
+													var productName = $("#prodName").html();
+
+													newChildPath.push(productName);
+												});
+
 										});
 									});
 								}
@@ -79,7 +93,7 @@ function runQuery(queryURL){
 			var wellSection = $('<div class="productWell col-sm-3"></div>');
 
 			//Display the title
-			var title = $('<p class="prodHeading">' + wallData.items[i].name.substr(0,40) + '...</p>');
+			var title = $('<p class="prodHeading" id="prodName">' + wallData.items[i].name.substr(0,40) + '...</p>');
 
 			//Display the product image
 			var image = $('<img>').attr('src', wallData.items[i].thumbnailImage);
