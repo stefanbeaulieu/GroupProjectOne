@@ -187,7 +187,7 @@ function runQuery(queryURL){
 		var maxPrice = $('#maxPrice').val();
 
 		//API Query
-		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=21&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
+		queryURL = "https://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=21&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
 
 		//Pass info into parameters to run function
 		runQuery(queryURL);
