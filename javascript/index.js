@@ -129,7 +129,7 @@ $("#loginButton").on('click', function() {
         if(snapshot.exists()){
 
           //user exists
-          window.location.href = "home.html";
+          window.location.href = "../home.html";
         }
 
         //If that user doesn't exist, write their uid to the database
