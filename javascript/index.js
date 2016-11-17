@@ -50,9 +50,9 @@ $("#signupButton").on('click', function() {
     });
 
   //Clear inputs after submit
-  $("#email").val("");
-  $("#password").val("");
-  $("#name").val("");
+  // $("#email").val("");
+  // $("#password").val("");
+  // $("#name").val("");
 
   //don't refresh page
   return false;
@@ -63,11 +63,12 @@ $("#signupButton").on('click', function() {
   function newUser () {
 
     var uid = firebase.auth().currentUser.uid;
-    // uid = uid.toString();
     console.log(uid);
 
     database.ref().child("users").child(uid).set({
-      uid: uid,
+      //Firebase doesn't allow us to create empty objects.
+      //I removed uid: uid because I was populating the friend list with all the children. - Krisha
+      Myself: "Myself",
     })
     .then(function(){
       console.log(arguments);
