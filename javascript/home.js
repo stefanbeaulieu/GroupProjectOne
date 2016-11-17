@@ -35,11 +35,19 @@ firebase.auth().onAuthStateChanged(function(user) {
 				$("#signOutButton").on('click', function() {
 					signOut();
 				});
-				
+
 	} else {
+		//Sign out a user
+			function signOut () {
+				firebase.auth().signOut().then(function() {
+				  // Sign-out successful.
+				  window.location.href = "index.html";
+				}, function(error) {
+				  // An error happened.
+					console.log(error);
+				});
+			}
 		signOut();
 		console.log("User is not signed in");
 	}
 });
-
-
