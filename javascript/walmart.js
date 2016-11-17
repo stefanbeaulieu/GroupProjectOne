@@ -8,7 +8,7 @@ var minPrice = 0;
 var maxPrice = 0;
 
 //Query URL for the API search
-var queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=" + numResults + "&format=json&apiKey=" + authKey + "&sort=price&order=asc";
+var queryURL = "https://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=" + numResults + "&format=json&apiKey=" + authKey + "&sort=price&order=asc";
 
 //Array to hold product info
 var productInfo = 0;
