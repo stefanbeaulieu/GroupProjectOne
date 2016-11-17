@@ -37,13 +37,43 @@ function runQuery(queryURL){
 		console.log(wallData);
 		console.log("-------------");
 
+						//Populating Add To dropdown (before for loop, was recreating the list for walmart items length)
+							firebase.auth().onAuthStateChanged(function(user) {
+								if (user) {
+									//Parent pathing for user
+									var parent = database.ref().child("users").child(user.uid);
+
+									parent.once("value")
+									.then(function(snapshot) {
+										//Loops through parent for every child
+										snapshot.forEach(function (childSnapshot) {
+											var key = childSnapshot.key;
+											//Grabs the data for each child, in our case the name of the friend
+											var childData = childSnapshot.val();
+
+											//Populate Add to list with friends
+												//New list item for each name
+												var newListItem = $('<li>');
+												var a = $('<a>');
+												a.attr("href", "#");
+												a.text(childData);
+
+												//append person to list item
+												newListItem.append(a);
+
+												//append list item to list
+												$("#unorderedList").append(newListItem);
+
+										});
+									});
+								}
+							});
+
 		//Loop through and provide the correct amount of products
 		for (var i = 0; i < wallData.items.length; i++) {
 
 			//increase productInfo by one each loop
 			productInfo++;
-
-
 
 			//Create HTML/Div well for product, price, description and price
 			var wellSection = $('<div class="productWell col-sm-3"></div>');
@@ -60,8 +90,48 @@ function runQuery(queryURL){
 			//Display Buy Now Button
 			var buyNow = $('<a href="' + wallData.items[i].productUrl + '" class="btn btn-success prodButton" target="_blank">Click Here for More Info</a>');
 
-			//display add to list
-			var addList = $('<button class="btn btn-default">Add to ...</button>');
+					//display add to list 
+					// var addList = $('<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add to ...</button>');
+
+					//creating Add to dropdown div
+					var n = $('<div>');
+					n.addClass("dropdown");
+
+					//dropdown button, with corresponding bootstrap attributes
+					var b = $('<button>')
+					b.addClass("btn btn-default dropdown-toggle")
+					b.attr("type", "button");
+					b.attr("data-toggle", "dropdown");
+					b.attr("aria-haspopup", "true");
+					b.attr("aria-expanded", "true");
+					b.text("Add to");
+
+					//append button to div, ensures following items do not go inside button
+					n.append(b);
+
+					//Creating unordered list for dropdown
+					var newUnorderedList = $('<ul>');
+					newUnorderedList.addClass("dropdown-menu");
+					newUnorderedList.attr('id', "unorderedList");
+
+					// //New list item for each name
+					// var newListItem = $('<li>');
+					// var a = $('<a>');
+					// a.attr("href", "#");
+					// a.text("Person Name");
+
+					// //append href to person
+					// newListItem.append(a);
+
+					// //append person to list
+					// newUnorderedList.append(newListItem);
+
+					// //append list to div
+					// n.append(newUnorderedList);
+
+
+					//append list to div
+					n.append(newUnorderedList);
 
 			//Display the description
 			// var description = $('<p>' + wallData.items[i].longDescription + '</p>');
@@ -73,15 +143,11 @@ function runQuery(queryURL){
 			wellSection.append(image);
 			wellSection.append(price);
 			wellSection.append(buyNow);
-			wellSection.append(addList);
+			wellSection.append(n);
 			// wellSection.append(description);
 
 			$('#prodSection').append(wellSection);
 		}
-
-
-
-
 
 	});
 }
@@ -109,15 +175,10 @@ function runQuery(queryURL){
 		//API Query
 		queryURL = "http://api.walmartlabs.com/v1/search?query=" + searchTerm + "&numItems=21&format=json&apiKey=wwrbpbwxmqp2me6d8hvubuhs&facet=on&facet.range=price:[" + minPrice + " TO " + maxPrice + "]&sort=price&order=asc";
 
-
-
-
 		//Pass info into parameters to run function
 		runQuery(queryURL);
 
 		return false;
-
-
 	});
 
 	//Clear the products that are currently being shown
